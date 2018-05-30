@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ListsContainer from './components/ListsContainer'
+import NewListForm from './components/NewListForm'
 
 class App extends Component {
   render() {

@@ -8,4 +8,4 @@ const List = ({list, onRemoveList = f => f}) =>
     <hr/>
   </div>
 
-export defualt List;
+export default List;

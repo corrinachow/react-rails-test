@@ -41,6 +41,7 @@ module Api::V1
         head :no_content, status: :ok
       else
         render json: @list.errors, status: :unprocessable_entity
+      end
     end
 
     private
@@ -51,7 +52,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def list_params
-        params.require(:list).permit(:title, :excerpt, :description, :upvotes)
+        params.require(:list).permit(:title, :excerpt)
       end
   end
 end

@@ -17,7 +17,7 @@ class ListsContainer extends Component {
   componentDidMount(){
     axios.get('/api/v1/lists.json')
     .then(response => {
-      console.loge(response);
+      console.log(response);
       this.setState({
         lists: response.data
       });
@@ -25,17 +25,16 @@ class ListsContainer extends Component {
     .catch(error => console.log(error))
   }
 
-
-  addNewList(title,excerpt){
-    axios.post('./api/v1/lists/', {list:{title,excerpt} })
-    .then(response => {
-      console.log(response)
-      const lists = [...this.state.lists, response.data]
-      this.setState({lists})
-    })
-    .catch(error => {
-      console.log(error)
-    })
+  addNewList(title, excerpt) {
+      axios.post( '/api/v1/lists', { list: {title, excerpt} })
+      .then(response => {
+          console.log(response)
+          const lists = [ ...this.state.lists, response.data ]
+          this.setState({lists})
+      })
+      .catch(error => {
+          console.log(error)
+      })
   }
 
   removeList(id){
@@ -55,6 +54,7 @@ class ListsContainer extends Component {
               {this.state.lists.map(list => {
                 return(<List list={list} key={list.id} onRemoveList = {this.removeList} />)
               })}
+          <NewListForm onNewList={this.addNewList} />
           </div>
       )
   }
