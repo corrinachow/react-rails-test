@@ -20,8 +20,33 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <link rel="stylesheet" href="//assets-cdn.ziggeo.com/v1-stable/ziggeo.css" />
+<script src="//assets-cdn.ziggeo.com/v1-stable/ziggeo.js"></script>
+<script>ZiggeoApi.token = "120e5271e3f8259cc47311e11e135c46";</script>
   </head>
   <body>
+    <script>
+ZiggeoApi.Events.on("submitted", function (data) {
+    alert("The video with token " + data.video.token + " has been submitted!");
+});
+</script>
+<div id="replace_me-v2_recorder"></div> <script>
+    ZiggeoApi.Events.on("system_ready", function() {
+        var recorder = new ZiggeoApi.V2.Recorder({
+            element: document.getElementById("replace_me-v2_recorder"),
+            attrs: {
+                width: 320,
+                height: 240,
+                theme: "modern",
+                themecolor: "red"
+            }
+        });
+
+        recorder.activate();
+    });
+    console.log(ZiggeoApi.Videos.source("videotoken"))
+</script>
+
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
