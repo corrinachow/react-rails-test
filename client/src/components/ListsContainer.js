@@ -48,6 +48,13 @@ class ListsContainer extends Component {
     .catch(error => console.log(error))
   }
 
+  uploadWidget() {
+    window.cloudinary.openUploadWidget({ cloud_name: 'dea31fa8u', upload_preset: 'rmli3253'},
+      function(error, result) {
+        console.log(result);
+      });
+    }
+
   render() {
       return (
           <div className="Lists-container">
@@ -55,6 +62,9 @@ class ListsContainer extends Component {
                 return(<List list={list} key={list.id} onRemoveList = {this.removeList} />)
               })}
           <NewListForm onNewList={this.addNewList} />
+          <button onClick={this.uploadWidget.bind(this)} className="upload-button">
+          Add Image
+          </button>
           </div>
       )
   }
