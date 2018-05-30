@@ -2,8 +2,8 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy":{
-    "/api":{
+  "proxy": {
+    "/api": {
       "target": "http://localhost:3001"
     }
   },
